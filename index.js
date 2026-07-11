@@ -21,6 +21,7 @@ function connect() {
         username: USERNAME,
         offline: false,
         skipPing: true,
+        followPort: false,
         connectTimeout: 60000
     });
 
