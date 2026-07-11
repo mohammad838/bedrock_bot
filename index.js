@@ -19,7 +19,7 @@ function connect() {
         host: HOST,
         port: MC_PORT,
         username: USERNAME,
-        offline: false,
+        offline: true,
         skipPing: true,
         followPort: false,
         connectTimeout: 60000
