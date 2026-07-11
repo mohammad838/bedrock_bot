@@ -5,7 +5,7 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-//  زنا ممعلومات السيرفر
+//  0زنا ممعلومات السيرفر
 const HOST = process.env.MC_HOST;
 const MC_PORT = Number(process.env.MC_PORT || 19132);
 const USERNAME = process.env.BOT_NAME || "BedrockBot";
