@@ -16,27 +16,28 @@ function connect() {
     console.log("Connecting...");
 
     client = bedrock.createClient({
-    host: HOST,
-    port: MC_PORT,
-    username: USERNAME,
-    offline: false,
-    skipPing: true
-});
+        host: HOST,
+        port: MC_PORT,
+        username: USERNAME,
+        offline: false,
+        skipPing: true,
+        connectTimeout: 20000
+    });
 
     client.on("join", () => {
         console.log("✅ Bot joined!");
     });
 
-    client.on("disconnect", () => {
-        console.log("❌ Disconnected");
+    client.on("disconnect", (packet) => {
+        console.log("❌ Disconnected:", JSON.stringify(packet, null, 2));
 
         setTimeout(() => {
             connect();
-        }, 5000);
+        }, 10000);
     });
 
     client.on("error", (err) => {
-        console.log(err.message);
+        console.error("Bot error:", err);
     });
 }
 connect();
