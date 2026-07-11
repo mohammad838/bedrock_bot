@@ -16,11 +16,12 @@ function connect() {
     console.log("Connecting...");
 
     client = bedrock.createClient({
-        host: HOST,
-        port: MC_PORT,
-        username: USERNAME,
-        offline: true
-    });
+    host: HOST,
+    port: MC_PORT,
+    username: USERNAME,
+    offline: true,
+    skipPing: true
+});
 
     client.on("join", () => {
         console.log("✅ Bot joined!");
