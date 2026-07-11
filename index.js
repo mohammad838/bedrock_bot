@@ -38,14 +38,3 @@ function connect() {
         console.log(err.message);
     });
 }
-
-connect();
-
-// صفحة ويب حتى يعمل Render
-app.get("/", (req, res) => {
-    res.send("Bot is running");
-});
-
-app.listen(PORT, () => {
-    console.log("Web server started");
-});
