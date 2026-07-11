@@ -1,0 +1,51 @@
+const express = require("express");
+const bedrock = require("bedrock-protocol");
+
+const app = express();
+
+const PORT = process.env.PORT || 3000;
+
+// معلومات السيرفر
+const HOST = process.env.MC_HOST;
+const MC_PORT = process.env.MC_PORT || 19132;
+const USERNAME = process.env.BOT_NAME || "BedrockBot";
+
+let client;
+
+function connect() {
+    console.log("Connecting...");
+
+    client = bedrock.createClient({
+        host: HOST,
+        port: MC_PORT,
+        username: USERNAME,
+        offline: true
+    });
+
+    client.on("join", () => {
+        console.log("✅ Bot joined!");
+    });
+
+    client.on("disconnect", () => {
+        console.log("❌ Disconnected");
+
+        setTimeout(() => {
+            connect();
+        }, 5000);
+    });
+
+    client.on("error", (err) => {
+        console.log(err.message);
+    });
+}
+
+connect();
+
+// صفحة ويب حتى يعمل Render
+app.get("/", (req, res) => {
+    res.send("Bot is running");
+});
+
+app.listen(PORT, () => {
+    console.log("Web server started");
+});
