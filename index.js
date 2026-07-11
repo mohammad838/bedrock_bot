@@ -38,3 +38,12 @@ function connect() {
         console.log(err.message);
     });
 }
+connect();
+
+app.get("/", (req, res) => {
+    res.send("Bot is running");
+});
+
+app.listen(PORT, () => {
+    console.log(`Web server started on port ${PORT}`);
+});
