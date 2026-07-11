@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 // معلومات السيرفر
 const HOST = process.env.MC_HOST;
-const MC_PORT = process.env.MC_PORT || 19132;
+const MC_PORT = Number(process.env.MC_PORT || 19132);
 const USERNAME = process.env.BOT_NAME || "BedrockBot";
 
 let client;
