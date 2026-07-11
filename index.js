@@ -21,7 +21,7 @@ function connect() {
         username: USERNAME,
         offline: false,
         skipPing: true,
-        connectTimeout: 20000
+        connectTimeout: 60000
     });
 
     client.on("join", () => {
