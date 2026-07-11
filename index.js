@@ -39,6 +39,29 @@ function connect() {
     client.on("error", (err) => {
         console.error("Bot error:", err);
     });
+    client.on("status", status => {
+    console.log("Status:", status);
+});
+
+client.on("session", () => {
+    console.log("✅ Session established");
+});
+
+client.on("join", () => {
+    console.log("✅ Bot joined!");
+});
+
+client.on("spawn", () => {
+    console.log("✅ Bot spawned!");
+});
+
+client.on("kick", reason => {
+    console.log("❌ Kicked:", reason);
+});
+
+client.on("close", () => {
+    console.log("❌ Connection closed");
+});
 }
 connect();
 
