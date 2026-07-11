@@ -19,7 +19,8 @@ function connect() {
     host: HOST,
     port: MC_PORT,
     username: USERNAME,
-    offline: false
+    offline: false,
+    skipPing: true
 });
 
     client.on("join", () => {
